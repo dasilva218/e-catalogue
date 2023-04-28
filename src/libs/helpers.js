@@ -4,7 +4,7 @@ const URL =
     : 'http://localhost:3000/';
 
 /**
- *
+ * ! post dealer
  * @param {*} formData
  * @returns
  */
@@ -25,7 +25,7 @@ export async function postDealer(formData) {
 }
 
 /**
- *
+ * ! post user
  * @param {*} formData
  * @returns
  */
@@ -45,3 +45,12 @@ export async function postUser(formData) {
     return error;
   }
 }
+
+/**
+ *! get dealers
+ */
+export const getDealers = async () => {
+  const response = await fetch(`${URL}api/dealers`);
+
+  return response.json();
+};

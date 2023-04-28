@@ -1,4 +1,4 @@
-import { postDealer } from '@/backend/controller/Dealers';
+import { getDealers, postDealer } from '@/backend/controller/Dealers';
 import connectMongo from '@/backend/database/dbConnect';
 
 export default async function handler(req, res) {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
-      res.status(201).json({ message: 'hello' });
+      getDealers(req, res);
       break;
     case 'POST':
       postDealer(req, res);

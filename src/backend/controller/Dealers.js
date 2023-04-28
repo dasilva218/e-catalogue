@@ -1,5 +1,4 @@
 import DEALERS from '@/backend/model/dealers';
-import Testes from '@/backend/model/dealers';
 
 /**
  * *controller pour éditer
@@ -65,9 +64,9 @@ export async function deleteCar(req, res) {
  * @param {*} req
  * @param {*} res
  */
-export async function getTestes(req, res) {
+export async function getDealers(req, res) {
   try {
-    const testes = await Testes.find();
+    const testes = await DEALERS.find();
     if (!testes) {
       res.status(200).json({ message: 'Vous avez aucune données' });
     }

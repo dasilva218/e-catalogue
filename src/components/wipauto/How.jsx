@@ -38,7 +38,7 @@ function Step() {
         <p className='how-text'>comparez</p>
       </div>
       <div className='how-logo'>
-        <Image src={'/img/how/Vector1.svg'} fill />
+        <Image src={'/img/how/vector1.svg'} fill />
       </div>
       <div className='flex flex-col items-center '>
         <div className='how-logo'>

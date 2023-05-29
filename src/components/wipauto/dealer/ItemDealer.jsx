@@ -3,8 +3,15 @@ import Phone from '../svg/Phone';
 import Mail from '../svg/Mail';
 import Localisation from '../svg/Localisation';
 import Opening from '../svg/Opening';
+import { useRouter } from 'next/router';
 
 function ItemDealer({ value }) {
+  //state
+  const ROUTE = useRouter();
+  // events
+  const LOOKCAR = (id) => {
+    ROUTE.push(`/wipauto/concessionnaires/${id}`);
+  };
   return (
     <div className='card w-full border border-blue-700 bg-slate-300  shadow-xl'>
       <figure className='px-3 pt-3'>
@@ -18,7 +25,9 @@ function ItemDealer({ value }) {
         <h2 className='card-title'>{value.name}</h2>
         <Infos value={value} />
         <div className='card-actions mt-5'>
-          <button className='btn btn-primary'>
+          <button
+            onClick={() => LOOKCAR(value._id)}
+            className='btn btn-primary'>
             voir les véhicules
           </button>
         </div>

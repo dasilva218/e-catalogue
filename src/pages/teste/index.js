@@ -35,43 +35,43 @@ export const getServerSideProps = async (ctx) => {
       phone: faker.phone.number('0## ## ## ##'),
       email: faker.internet.email(),
       logo: faker.image.business(),
-      city: faker.address.country(),
+      city: 'owendo',
       district: faker.address.cityName(),
       time: { open: '08', close: '16' },
-      sale: true,
-      salecar: [
+      rent: true,
+      rentcar: [
         {
-          marque: faker.vehicle.vehicle(),
-          model: faker.vehicle.model(),
+          marque: 'Hyundai',
+          model: 'avensis',
           fuel: faker.vehicle.fuel(),
           transmission: 'manuel',
           type: faker.vehicle.type(),
           year: '2005',
           price: 20000,
           constructor: faker.vehicle.model(),
-          img: 'toyota',
+          img: 'Hyundai',
           door: 4,
         },
         {
-          marque: faker.vehicle.vehicle(),
-          model: faker.vehicle.model(),
+          marque: 'toyota',
+          model: 'avensis',
           fuel: faker.vehicle.fuel(),
           transmission: 'manuel',
           type: faker.vehicle.type(),
           year: '2005',
-          price: 20000,
+          price: 5000000,
           constructor: faker.vehicle.model(),
           img: 'toyota',
           door: 4,
         },
         {
-          marque: faker.vehicle.vehicle(),
-          model: faker.vehicle.model(),
+          marque: 'toyota',
+          model: 'avensis',
           fuel: faker.vehicle.fuel(),
           transmission: 'manuel',
           type: faker.vehicle.type(),
           year: '2005',
-          price: 20000,
+          price: 22000000,
           constructor: faker.vehicle.model(),
           img: 'toyota',
           door: 4,
@@ -83,7 +83,7 @@ export const getServerSideProps = async (ctx) => {
     res.status(405).json({ error: 'erreure dans la connexion' })
   );
 
-  Array.from({ length: 10 }).forEach(() => {
+  Array.from({ length: 5 }).forEach(() => {
     USERS.push(newDealer());
   });
   // const request = await DEALERS.insertMany(USERS);

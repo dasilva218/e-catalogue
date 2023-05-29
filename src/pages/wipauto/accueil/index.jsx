@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function HomeAuto() {
   return (
-    <main className='relative bg-slate-700'>
+    <main className='relative '>
       <NAvBarAuto />
       <section className=' min-h-max bg-slate-700 '>
         <div className='hero-content flex-col '>

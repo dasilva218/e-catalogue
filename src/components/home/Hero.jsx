@@ -22,7 +22,7 @@ export default function Hero() {
       </p>
       <button
         onClick={() => {
-          router.push('/wipauto');
+          router.push('/wipauto/accueil');
         }}
         className='btn btn-warning hover:bg-orange-400 tracking-widest '>
         DECOUVRIR

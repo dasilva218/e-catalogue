@@ -4,12 +4,13 @@ import ItemDealer from './ItemDealer';
 function Vente() {
   // state
   const dealers = useSelector((state) => state.dealers.dealers);
-  const dealersRent = dealers.filter((value) => value.rent === true);
+
+  const dealersSale = dealers.filter((value) => value.sale === true);
   //render
   return (
     <div className='p-3 '>
       <div className='flex flex-col gap-2 justify-between  border'>
-        {dealersRent.map((value) => (
+        {dealersSale.map((value) => (
           <ItemDealer key={value._id} value={value} />
         ))}
       </div>

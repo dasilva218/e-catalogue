@@ -1,8 +1,10 @@
+import Link from 'next/link';
+
 export default function NAvBarAuto() {
   const menu = [
-    'Accueil',
-    'concessionnaire',
-    'particulier',
+    'accueil',
+    'concessionnaires',
+    'particuliers',
     'services',
   ];
   return (
@@ -26,7 +28,11 @@ export default function NAvBarAuto() {
             tabIndex={0}
             className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'>
             {menu.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li className='p-3' key={index}>
+                <Link href={`/wipauto/${encodeURIComponent(item)}`}>
+                  {item}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

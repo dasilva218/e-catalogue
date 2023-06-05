@@ -51,6 +51,12 @@ export async function postUser(formData) {
  */
 export const getDealers = async () => {
   const response = await fetch(`${URL}api/dealers`);
+  return response.json();
+};
 
+export const compare = async (rent, model, marque) => {
+  const response = await fetch(
+    `${URL}api/compare?rent=${rent}&model=${model}&marque=${marque}`
+  );
   return response.json();
 };

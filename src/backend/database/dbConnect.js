@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const URI =
-  process.env.NODE_ENV === 'production'
+const URI = process.env.MONGO_URI;
+/* process.env.NODE_ENV === 'production'
     ? process.env.MONGO_URI
-    : process.env.MONGO_LOCAL;
+    : process.env.MONGO_LOCAL; */
 
 const connectMongo = async () => {
   try {

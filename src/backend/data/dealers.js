@@ -1,6 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-const data = [
+const dealersJson = [
   {
     _id: {
       $oid: '64521116b4e8f4fd57934933',
@@ -3607,18 +3605,5 @@ const data = [
     },
   },
 ];
-const format = JSON.parse(JSON.stringify(data));
-export const dealerslice = createSlice({
-  name: 'dealers',
-  initialState: {
-    dealers: [],
-  },
-  reducers: {
-    setDealers: (state, action) => {
-      state.dealers = action.payload;
-    },
-  },
-});
-
-export const { setDealers } = dealerslice.actions;
-export default dealerslice.reducer;
+const format = JSON.stringify(dealersJson);
+export default format;

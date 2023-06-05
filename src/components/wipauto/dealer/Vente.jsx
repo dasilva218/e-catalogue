@@ -4,7 +4,6 @@ import ItemDealer from './ItemDealer';
 function Vente() {
   // state
   const dealers = useSelector((state) => state.dealers.dealers);
-
   const dealersSale = dealers.filter((value) => value.sale === true);
   //render
   return (

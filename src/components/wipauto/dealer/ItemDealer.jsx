@@ -5,21 +5,19 @@ import Localisation from '../svg/Localisation';
 import Opening from '../svg/Opening';
 import { useRouter } from 'next/router';
 
-function ItemDealer({ value }) {
+function ItemDealer({ value, service }) {
   //state
   const ROUTE = useRouter();
   // events
   const LOOKCAR = (id) => {
-    ROUTE.push(`/wipauto/concessionnaires/${id}`);
+    ROUTE.push(
+      `/wipauto/concessionnaires/vehicules?id=${id}&service=${service}`
+    );
   };
   return (
     <div className='card w-full border border-blue-700 bg-slate-300  shadow-xl'>
       <figure className='px-3 pt-3'>
-        <img
-          src='/upload/logoDealers/autocar'
-          alt='Shoes'
-          className='rounded-xl'
-        />
+        <img src={value.logo} alt='Shoes' className='rounded-xl' />
       </figure>
       <div className='card-body items-center text-black text-center'>
         <h2 className='card-title'>{value.name}</h2>

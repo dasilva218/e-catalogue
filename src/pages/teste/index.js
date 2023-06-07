@@ -1,7 +1,10 @@
 import { useRouter } from 'next/router';
 import { Faker, faker } from '@faker-js/faker';
-import DEALERS from '../../backend/model/dealers';
+
 import connectMongo from '@/backend/database/dbConnect';
+
+// import RENTCARDEALER from '@/backend/model/dealer/rentcardealer';
+import SALECARDEALER from '@/backend/model/dealer/salecardealer';
 function teste({ USERS }) {
   //state
   // const USERS = [];
@@ -31,62 +34,28 @@ export const getServerSideProps = async (ctx) => {
   const USERS = [];
   function newDealer() {
     return {
-      name: faker.company.name(),
-      phone: faker.phone.number('0## ## ## ##'),
-      email: faker.internet.email(),
-      logo: faker.image.business(),
-      city: 'owendo',
-      district: faker.address.cityName(),
-      time: { open: '08', close: '16' },
-      rent: true,
-      rentcar: [
-        {
-          marque: 'Hyundai',
-          model: 'avensis',
-          fuel: faker.vehicle.fuel(),
-          transmission: 'manuel',
-          type: faker.vehicle.type(),
-          year: '2005',
-          price: 20000,
-          constructor: faker.vehicle.model(),
-          img: 'Hyundai',
-          door: 4,
-        },
-        {
-          marque: 'toyota',
-          model: 'avensis',
-          fuel: faker.vehicle.fuel(),
-          transmission: 'manuel',
-          type: faker.vehicle.type(),
-          year: '2005',
-          price: 5000000,
-          constructor: faker.vehicle.model(),
-          img: 'toyota',
-          door: 4,
-        },
-        {
-          marque: 'toyota',
-          model: 'avensis',
-          fuel: faker.vehicle.fuel(),
-          transmission: 'manuel',
-          type: faker.vehicle.type(),
-          year: '2005',
-          price: 22000000,
-          constructor: faker.vehicle.model(),
-          img: 'toyota',
-          door: 4,
-        },
-      ],
+      marque: faker.vehicle.manufacturer(),
+      model: faker.vehicle.model(),
+      fuel: faker.vehicle.fuel(),
+      transmission: 'automatique',
+      type: faker.vehicle.type(),
+      year: '2015',
+      price: 20000,
+      constructor: faker.vehicle.manufacturer(),
+      img: '/img/voiture.png',
+      door: 4,
+      foreign_key_dealer: '647f6cfd8242e7e1bacb7bbd',
     };
   }
   connectMongo().catch(() =>
     res.status(405).json({ error: 'erreure dans la connexion' })
   );
 
-  Array.from({ length: 5 }).forEach(() => {
+  Array.from({ length: 6 }).forEach(() => {
     USERS.push(newDealer());
   });
-  // const request = await DEALERS.insertMany(USERS);
+  console.log(USERS);
+  // const request = await SALECARDEALER.insertMany(USERS)
   return {
     props: {
       USERS,

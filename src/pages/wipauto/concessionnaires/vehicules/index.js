@@ -1,42 +1,46 @@
 import Door from '@/components/wipauto/svg/Door';
 import Fuel from '@/components/wipauto/svg/Fuel';
 import Speed from '@/components/wipauto/svg/Speed';
-import { getDealers } from '@/libs/helpers';
-import { setDealers } from '@/redux/slices/dealers.slice';
-import Image from 'next/image';
+import DEALERS from '@/backend/model/dealer/dealer';
 import { useRouter } from 'next/router';
+import SALECARDEALER from '@/backend/model/dealer/salecardealer';
+import RENTCARDEALER from '@/backend/model/dealer/rentcardealer';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import Image from 'next/image';
 
-function Index({ dealerServer }) {
-  const dispatch = useDispatch();
-  dispatch(setDealers(dealerServer));
-
+export default function Vehicles({ DEALER, CARS, SERVICE }) {
+  const [dealer, setDealer] = useState(JSON.parse(DEALER));
+  const [cars, setCars] = useState(JSON.parse(CARS));
+  const [service, setService] = useState(SERVICE);
   const ROUTER = useRouter();
-  const path = (rent, model, marque) =>
+  const path = (service, model, marque) =>
     ROUTER.push(
-      `/wipauto/concessionnaires/compare?rent=${rent}&model=${model}&marque=${marque}`
+      `/wipauto/compare?service=${service}&model=${model}&marque=${marque}`
     );
-  const { id } = ROUTER.query;
-  const dealers = useSelector((state) => state.dealers.dealers);
-  const dealer = dealers.filter((value) => value._id === id);
-  const cars = dealer[0].rent ? dealer[0].rentcar : dealer[0].salecar;
-  //render
+
+  console.log(cars);
+  console.log(dealer);
+  console.log(service);
   return (
     <main>
       <div className='flex h-40 border items-center justify-around border-red-700'>
-        <h1 className=''>Liste des véhicules</h1>
-        <div className='border border-blue-600 w-40 h-36'>
-          {/* <Image src={dealer[0].logo} fill /> */}
+        <h1 className=''>{dealer.name}</h1>
+        <div className='border border-blue-600 w-40 max-h-36'>
+          <img
+            className='h-full'
+            src={dealer.logo}
+            alt='ss'
+            srcset=''
+          />
         </div>
       </div>
       <section className='p-3 flex justify-between gap-2 flex-wrap'>
         {cars.map((item) => (
           <Car
-            chemin={path}
             key={item._id}
             value={item}
-            rent={dealer[0].rent}
+            root={path}
+            service={service}
           />
         ))}
       </section>
@@ -44,35 +48,31 @@ function Index({ dealerServer }) {
   );
 }
 
-export default Index;
-
-export async function getServerSideProps(ctx) {
-  const dealerServer = await getDealers();
-
-  return {
-    props: {
-      dealerServer,
-    },
-  };
-}
-
-function Car({ value, rent, chemin }) {
+function Car({ value, service, root }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className='w-40 p-3 border border-red-700'>
-      <div className='w-full h-24 border border-red-700'></div>
+      <div className='w-full h-24 border border-red-700'>
+        <img src={value.img[0]} alt='ds' srcset='' />
+      </div>
       <div className='p-3'>
         <div className='flex gap-4'>
           <p>{value.marque}</p>
           <p>{value.model}</p>
         </div>
-        <div className=''>{value.price} fcfa</div>
+        <div className=''>
+          {service === 'location' ? (
+            <p>{value.price} FCFA / jour </p>
+          ) : (
+            <p>{value.price} FCFA </p>
+          )}
+        </div>
       </div>
       <div className='flex gap-5'>
         <button onClick={() => setOpen(true)}>details</button>
         <button
-          onClick={() => chemin(rent, value.model, value.marque)}>
+          onClick={() => root(service, value.model, value.marque)}>
           comparer
         </button>
       </div>
@@ -161,4 +161,28 @@ function Property({ children }) {
       {children}
     </div>
   );
+}
+
+export async function getServerSideProps({ query, res }) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  );
+  const DEALER = JSON.stringify(await DEALERS.findById(query.id));
+  const CARS =
+    query.service === 'location'
+      ? JSON.stringify(
+          await RENTCARDEALER.find({
+            foreign_key_dealer: query.id,
+          })
+        )
+      : JSON.stringify(
+          await SALECARDEALER.find({
+            foreign_key_dealer: query.id,
+          })
+        );
+
+  return {
+    props: { DEALER, CARS, SERVICE: query.service },
+  };
 }

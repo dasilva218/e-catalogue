@@ -1,6 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-function Hero() {
+function Hero({ section }) {
+  if (!section) {
     return (
       <section className='p-6 bg-white '>
         <div className='grid grid-rows-2 grid-cols-1 gap-8 '>
@@ -23,6 +24,16 @@ function Hero() {
         </div>
       </section>
     );
+  } else {
+    return (
+      <section className='h-28 border border-red-700 bg-no-repeat bg-[url("/img/backcompare.png")] p-4 '>
+        <p className='text-sm w-64'>
+          Trouver la voiture que vous voulez grâce aux milliers de
+          particuliers qui nous font confiance
+        </p>
+      </section>
+    );
+  }
 }
 
 export default Hero;

@@ -9,7 +9,7 @@ function Vente() {
   //render
   return (
     <div className='p-3 '>
-      <div className='flex flex-col gap-2 justify-between  border'>
+      <div className='flex flex-col md:flex-row gap-2 justify-between  border'>
         {dealersSale.map((value) => (
           <ItemDealer
             key={value._id}

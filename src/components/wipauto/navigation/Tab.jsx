@@ -3,7 +3,7 @@ import Image from 'next/image';
 function Tab({ state, action }) {
   // render
   return (
-    <nav className='bg-white w-11/12 h-11 flex flex-col justify-center  m-auto'>
+    <nav className='bg-white w-11/12 h-11 flex flex-col justify-center m-auto'>
       <ul className='grid justify-items-center grid-cols-2'>
         <li
           onClick={() => action(true)}

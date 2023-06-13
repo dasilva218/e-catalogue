@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import { Faker, faker } from '@faker-js/faker';
-
 import connectMongo from '@/backend/database/dbConnect';
-
+// import SALECARP from '@/backend/model/particular/salecarparticular';
+import RENTCARP from '@/backend/model/particular/rentcarparticular';
+// import PARTICULARS from '@/backend/model/particular/particular';
 // import RENTCARDEALER from '@/backend/model/dealer/rentcardealer';
-import SALECARDEALER from '@/backend/model/dealer/salecardealer';
+// import SALECARDEALER from '@/backend/model/dealer/salecardealer';
+
 function teste({ USERS }) {
   //state
   // const USERS = [];
@@ -31,31 +33,40 @@ function teste({ USERS }) {
 export default teste;
 
 export const getServerSideProps = async (ctx) => {
-  const USERS = [];
+  const CAR = {
+    marque: faker.vehicle.manufacturer(),
+    model: faker.vehicle.model(),
+    fuel: faker.vehicle.fuel(),
+    transmission: 'automatique',
+    type: faker.vehicle.type(),
+    year: '2015',
+    city: 'akanda',
+    price: 20000,
+    constructor: faker.vehicle.manufacturer(),
+    img: '/img/voiture.png',
+    door: 4,
+    foreign_key_dealer: '6480b41078805842c39bf563',
+  };
+  const PARTICULAR = {
+    name: faker.company.name(),
+    phone: [faker.phone.number(), faker.phone.number()],
+    email: faker.internet.email(),
+    logo: 'https://loremflickr.com/640/480/business',
+    city: 'libreville',
+  };
+  // const USERS = [];
   function newDealer() {
-    return {
-      marque: faker.vehicle.manufacturer(),
-      model: faker.vehicle.model(),
-      fuel: faker.vehicle.fuel(),
-      transmission: 'automatique',
-      type: faker.vehicle.type(),
-      year: '2015',
-      price: 20000,
-      constructor: faker.vehicle.manufacturer(),
-      img: '/img/voiture.png',
-      door: 4,
-      foreign_key_dealer: '647f6cfd8242e7e1bacb7bbd',
-    };
+    return CAR;
   }
   connectMongo().catch(() =>
     res.status(405).json({ error: 'erreure dans la connexion' })
   );
 
-  Array.from({ length: 6 }).forEach(() => {
+  Array.from({ length: 2 }).forEach(() => {
     USERS.push(newDealer());
   });
   console.log(USERS);
-  // const request = await SALECARDEALER.insertMany(USERS)
+  const request = await RENTCARP.insertMany(USERS);
   return {
     props: {
       USERS,

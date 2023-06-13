@@ -1,5 +1,5 @@
 import connectMongo from '@/backend/database/dbConnect';
-import DEALERS from '@/backend/model/dealers';
+import DEALERS from '@/backend/model/testedealers';
 
 export default async function handler(req, res) {
   connectMongo().catch(() =>

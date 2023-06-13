@@ -1,27 +1,16 @@
-import { useForm } from 'react-hook-form';
-
-function Filter({ action }) {
-  const {
-    register,
-    getValues,
-    watch,
-    formState: { errors },
-  } = useForm({ mode: 'onchange' });
-  action(getValues('radio-6'));
-
+function Filter() {
   return (
-    <div className='flex border '>
-      <p className='text-white bg-orange-300 p-2 text-xs'>
+    <div className='flex justify-between mt-3 bg-white'>
+      <p className='text-white bg-orange-300 order-2 p-2 text-xs'>
         filtre par commune
       </p>
-      <form className=' p-2 flex gap-6 text-gray-950'>
+      <form className=' bg-white p-2 flex gap-6 text-gray-950'>
         <p className='flex-filter'>
           <input
-            value="libreville"
             id='libreville'
             type='radio'
-            {...register('radio-6')}
-            className='radio radio-warning input-size'
+            name='radio-6'
+            className='radio radio-warning'
           />
           <label htmlFor='libreville'>Libreville</label>
         </p>
@@ -30,7 +19,6 @@ function Filter({ action }) {
             value={'akanda'}
             id='akanda'
             type='radio'
-            {...register('radio-6')}
             className='radio radio-warning input-size'
           />
           <label htmlFor='akanda'>Akanda</label>
@@ -40,7 +28,6 @@ function Filter({ action }) {
             value={'owendo'}
             id='owendo'
             type='radio'
-            {...register('radio-6')}
             className='radio radio-warning input-size'
           />
           <label htmlFor='owendo'>Owendo</label>

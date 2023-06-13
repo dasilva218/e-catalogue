@@ -25,12 +25,12 @@ export default function HomeAuto() {
       </section>
       <LogoVoiture />
       <How />
-      <section className='p-4 xl:px-36 xl:py-14'>
+      <section className='p-4 xl:px-36 text-black bg-white xl:py-14'>
         <p className='text-center md:text-2xl xl:text-4xl '>
           Nous vous connectons aux plus grandes enseignes de location
           et vente de voitures..
         </p>
-        <div className='relative h-36 md:h-56 '>
+        <div className='relative h-36  md:h-56 '>
           <Image fill src={'/img/how/collection-card.svg'} />
         </div>
       </section>

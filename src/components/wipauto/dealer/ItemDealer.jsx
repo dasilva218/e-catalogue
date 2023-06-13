@@ -5,26 +5,36 @@ import Localisation from '../svg/Localisation';
 import Opening from '../svg/Opening';
 import { useRouter } from 'next/router';
 
-function ItemDealer({ value, service }) {
+function ItemDealer({
+  vente,
+  _id,
+  name,
+  district,
+  city,
+  phone,
+  email,
+  time,
+  logo,
+}) {
   //state
   const ROUTE = useRouter();
   // events
   const LOOKCAR = (id) => {
     ROUTE.push(
-      `/wipauto/concessionnaires/vehicules?id=${id}&service=${service}`
+      `/wipauto/concessionnaires/vehicules?id=${id}&service=${vente}`
     );
   };
   return (
-    <div className='card w-full border border-blue-700 bg-slate-300  shadow-xl'>
+    <div className=' w-full border md:w-1/2 lg:w-96 shadow-xl'>
       <figure className='px-3 pt-3'>
-        <img src={value.logo} alt='Shoes' className='rounded-xl' />
+        <img src={logo} alt='Shoes' className='rounded-xl' />
       </figure>
       <div className='card-body items-center text-black text-center'>
-        <h2 className='card-title'>{value.name}</h2>
-        <Infos value={value} />
+        <h2 className='card-title'>{name}</h2>
+        <Infos value={{ email, time, phone, district, city }} />
         <div className='card-actions mt-5'>
           <button
-            onClick={() => LOOKCAR(value._id)}
+            onClick={() => LOOKCAR(_id)}
             className='btn btn-primary'>
             voir les véhicules
           </button>
@@ -49,7 +59,9 @@ function Infos({ value }) {
       </div>
       <div className='flex items-center gap-3'>
         <Localisation />
-        <p>{value.district}</p>
+        <p>
+          {value.district} {value.city}
+        </p>
       </div>
       <div className='flex items-center gap-3'>
         <Opening />

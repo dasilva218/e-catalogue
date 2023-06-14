@@ -7,6 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { Select, TextField } from '@mui/material';
 import clsx from 'clsx';
+import { postDealer, postUser } from '@/libs/helpers';
+import { useRouter } from 'next/router';
 
 const schema = object({
   name: string().required('entrez un nom'),
@@ -15,11 +17,13 @@ const schema = object({
   city: string(),
   district: string(),
   rent: string(),
-  sales: string(),
+  sale: string(),
 });
 
 export default function Register() {
+  // state
   // kook
+  const route = useRouter();
   const {
     handleSubmit,
     control,
@@ -27,7 +31,35 @@ export default function Register() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   //   function
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const newDealer = {
+      name: data.name,
+      phone: data.phone,
+      email: data.email,
+      city: data.city,
+      district: data.district,
+      rent: data.rent,
+      sale: data.sale,
+      time: { open: data.timeopen, close: data.timeclose },
+    };
+
+    const newUser = {
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const insertDealer = await postDealer(newDealer);
+      const inserUser = await postUser(newUser);
+
+      insertDealer.message && inserUser.message
+        ? () => route.push('wipauto/admin/concessionnaire/connexion')
+        : () =>
+            route.push('wipauto/admin/concessionnaire/inscription');
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   // render
   return (
     <Layout composant={register}>
@@ -262,7 +294,7 @@ export default function Register() {
               render={({ field }) => (
                 <TextField
                   {...field}
-                  type='cfpassword'
+                  type='password'
                   label='confirmez mot de passe'
                   id='cfpassword'
                   variant='standard'

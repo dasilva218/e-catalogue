@@ -109,7 +109,7 @@ export async function postDealer(req, res) {
         .status(404)
         .json({ message: "Aucune donnée n'as été envoyées" });
     const dealer = await DEALERS.create(formData);
-    res.status(201).json(dealer);
+    res.status(201).json({ message: true, data: dealer });
   } catch (error) {
     return res.status(404).json({ error });
   }

@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { Select, TextField } from '@mui/material';
 import clsx from 'clsx';
-import { postDealer, postUser } from '@/libs/helpers';
+import { getDealers, postDealer, postUser } from '@/libs/helpers';
 import { useRouter } from 'next/router';
 
 const schema = object({
@@ -38,8 +38,8 @@ export default function Register() {
       email: data.email,
       city: data.city,
       district: data.district,
-      rent: data.rent,
-      sale: data.sale,
+      rent: data.rent === 'oui' ? true : false,
+      sale: data.sale === 'oui' ? true : false,
       time: { open: data.timeopen, close: data.timeclose },
     };
 
@@ -51,9 +51,7 @@ export default function Register() {
     const insertDealer = await postDealer(newDealer);
     const inserUser = await postUser(newUser);
 
-    insertDealer.message && inserUser.message
-      ? () => route.push('wipauto/admin/concessionnaire/connexion')
-      : () => route.push('wipauto/admin/concessionnaire/inscription');
+    route.push('/wipauto/accueil');
   };
   // render
   return (

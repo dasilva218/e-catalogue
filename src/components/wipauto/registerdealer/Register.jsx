@@ -48,17 +48,12 @@ export default function Register() {
       password: data.password,
     };
 
-    try {
-      const insertDealer = await postDealer(newDealer);
-      const inserUser = await postUser(newUser);
+    const insertDealer = await postDealer(newDealer);
+    const inserUser = await postUser(newUser);
 
-      insertDealer.message && inserUser.message
-        ? () => route.push('wipauto/admin/concessionnaire/connexion')
-        : () =>
-            route.push('wipauto/admin/concessionnaire/inscription');
-    } catch (error) {
-      console.log(error.message);
-    }
+    insertDealer.message && inserUser.message
+      ? () => route.push('wipauto/admin/concessionnaire/connexion')
+      : () => route.push('wipauto/admin/concessionnaire/inscription');
   };
   // render
   return (

@@ -46,7 +46,7 @@ export default function NAvBarAuto() {
         <ul className='p-2 shadow  dropdown-content bg-base-100 rounded-box w-52'>
           {menu2.map((item, index) => (
             <li className='p-3' key={index}>
-              <Link href={`/wipauto/${encodeURIComponent(item)}`}>
+              <Link href={`/wipauto/admin/concessionnaire/${encodeURIComponent(item)}`}>
                 {item}
               </Link>
             </li>

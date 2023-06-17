@@ -1,4 +1,4 @@
-import USERS from '../model/users';
+import USERS from '../model/user/users';
 
 /**
  * ! post user
@@ -18,5 +18,19 @@ export async function postUser(req, res) {
     res.status(201).json({ message: true, data: user });
   } catch (error) {
     return res.status(404).json({ error });
+  }
+}
+
+export async function getUsers(req, res) {
+  try {
+    const user = await USERS.find();
+    if (!user) {
+      res.status(200).json({ message: 'Vous avez aucune données' });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res
+      .status(404)
+      .json({ error: 'erreur dans la récupération des données' });
   }
 }

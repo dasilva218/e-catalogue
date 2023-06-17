@@ -2,12 +2,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../../../styles/Form.module.css';
 import Layout from '../signindealer/Layout';
-import { boolean, object, string } from 'yup';
+import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import { Select, TextField } from '@mui/material';
 import clsx from 'clsx';
-import { getDealers, postDealer, postUser } from '@/libs/helpers';
+import { postDealer, postUser } from '@/libs/helpers';
 import { useRouter } from 'next/router';
 
 const schema = object({
@@ -51,7 +51,7 @@ export default function Register() {
     const insertDealer = await postDealer(newDealer);
     const inserUser = await postUser(newUser);
 
-    route.push('/wipauto/accueil');
+    route.push('/wipauto/admin/concessionnaire/connexion');
   };
   // render
   return (

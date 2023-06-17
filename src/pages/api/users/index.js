@@ -1,4 +1,4 @@
-import { postUser } from '@/backend/controller/Users';
+import { getUsers, postUser } from '@/backend/controller/Users';
 import connectMongo from '@/backend/database/dbConnect';
 
 export default async function handler(req, res) {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
-      res.status(201).json({ message: 'hello' });
+      getUsers(req, res);
       break;
     case 'POST':
       postUser(req, res);

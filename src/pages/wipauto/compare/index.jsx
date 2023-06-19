@@ -1,6 +1,10 @@
+import connectMongo from '@/backend/database/dbConnect';
+// import DEALERS from '@/backend/model/dealer/dealer';
+import SALECARDEALER from '@/backend/model/dealer/salecardealer';
 import CarCompare from '@/components/wipauto/compare/CarCompare';
 
-export default function Index() {
+export default function Index({ CARCOMPARE }) {
+  console.log(CARCOMPARE);
   return (
     <main className='bg-white'>
       <nav className='h-11 flex items-center text-orange-400'>
@@ -9,8 +13,8 @@ export default function Index() {
       <div className="h-28 bg-[url('/img/backcompare.png')] "></div>
       <section className='p-3'>
         <div className='flex flex-wrap justify-around border border-red-600'>
-          {[1, 2, 3, 4].map((item) => (
-            <CarCompare />
+          {CARCOMPARE.map((item) => (
+            <CarCompare {...item} />
           ))}
         </div>
       </section>
@@ -19,9 +23,20 @@ export default function Index() {
 }
 
 export async function getServerSideProps(ctx) {
+  const { marque, model, service } = ctx.query;
+
+  connectMongo().catch(() =>
+    res.status(405).json({ error: 'erreure de la connexion' })
+  );
+
+  const CARCOMPARE = await SALECARDEALER.find({
+    marque: marque,
+    model: model,
+  });
+
   return {
     props: {
-      data: null,
+      CARCOMPARE: JSON.parse(JSON.stringify(CARCOMPARE)),
     },
   };
 }

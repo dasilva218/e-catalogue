@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function How() {
   return (
-    <section className='border-slate-800 border flex gap-y-4 flex-col p-5 xl:px-36 xl:py-20 md:p-8'>
+    <section className=' flex gap-y-4 flex-col p-5 xl:px-36 xl:py-20 md:p-8'>
       <h1 className='text-center text-2xl md:text-4xl'>
         Comment ça marche ?
       </h1>

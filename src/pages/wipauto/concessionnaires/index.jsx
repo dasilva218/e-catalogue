@@ -7,25 +7,32 @@ import Filter from '@/components/wipauto/filter/Filter';
 import Footer from '@/components/wipauto/footer/Footer';
 import Tab from '@/components/wipauto/navigation/Tab';
 import { getDealers } from '@/libs/helpers';
+import clsx from 'clsx';
 import { createContext, useContext, useState } from 'react';
 
-const DealerContext = createContext(null);
+export const DealerContext = createContext(null);
 
 export default function Dealers({ DEALERSALE, DEALERENT }) {
   const [Toggle, setToggle] = useState(true);
   const [dealersale, setDealersale] = useState(DEALERSALE);
   const [dealerent, setDealerent] = useState(DEALERENT);
-  const storeDealer = { dealersale, dealerent };
+  const [selectedRadio, setSelectedRadio] = useState('');
+  const storeDealer = {
+    dealersale,
+    dealerent,
+    selectedRadio,
+    setSelectedRadio,
+  };
 
   return (
     <DealerContext.Provider value={storeDealer}>
-      <main className='bg-white'>
+      <main className={clsx('bg-white')}>
         <NAvBarAuto />
         <Hero />
         <div className='h-11 bg-white'>
           <Tab state={Toggle} action={setToggle} />
         </div>
-        <div className=''>
+        <div className={clsx('lg:p-10')}>
           <Filter />
           {Toggle ? <Vente /> : <Location />}
         </div>
@@ -37,13 +44,15 @@ export default function Dealers({ DEALERSALE, DEALERENT }) {
 
 // composant vente
 const Vente = () => {
-  const { dealersale } = useContext(DealerContext);
+  const { dealersale, selectedRadio } = useContext(DealerContext);
   return (
     <section className='bg-white p-5'>
       <div className='flex flex-col  md:flex-row lg:flex-row lg:flex-wrap lg:gap-5 lg:justify-center md:flex-wrap gap-y-3'>
-        {dealersale.map((item) => (
-          <ItemDealer key={item._id} vente={'vente'} {...item} />
-        ))}
+        {dealersale
+          .filter((item) => item.city.includes(selectedRadio))
+          .map((item) => (
+            <ItemDealer key={item._id} vente={'vente'} {...item} />
+          ))}
       </div>
     </section>
   );
@@ -51,13 +60,15 @@ const Vente = () => {
 
 // composant location
 const Location = () => {
-  const { dealerent } = useContext(DealerContext);
+  const { dealerent, selectedRadio } = useContext(DealerContext);
   return (
     <section className='bg-white p-5'>
       <div className='flex flex-col  md:flex-row lg:flex-row lg:flex-wrap lg:gap-5 lg:justify-center md:flex-wrap gap-y-3'>
-        {dealerent.map((item) => (
-          <ItemDealer key={item._id} vente={'location'} {...item} />
-        ))}
+        {dealerent
+          .filter((item) => item.city.includes(selectedRadio))
+          .map((item) => (
+            <ItemDealer key={item._id} vente={'location'} {...item} />
+          ))}
       </div>
     </section>
   );

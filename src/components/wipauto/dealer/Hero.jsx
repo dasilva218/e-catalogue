@@ -1,12 +1,30 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 
 function Hero({ section }) {
   if (!section) {
     return (
-      <section className='p-3 bg-white text-black'>
-        <div className=''>
-          <div className='grid grid-rows-2 gap-5 items-center '>
-            <p className='px-5 after:content-[url("/img/dealer/Vector.svg")] relative after:absolute after:bottom-3 md:after:-bottom-1 lg:after:bottom-6 after:left-28 md:after:left-40 lg:after:left-60 after:w-1 after:h-2 font-bold text-3xl capitalize leading-9'>
+      <section
+        className={clsx('p-3', 'lg:p-10', 'bg-white', 'text-black')}>
+        <div className={clsx('lg:flex')}>
+          <div
+            className={clsx(
+              'grid',
+              'grid-rows-2',
+              'gap-5',
+              'items-center',
+              'lg:flex-1'
+            )}>
+            <p
+              className={clsx(
+                'px-5',
+                'after:content-[url("/img/dealer/Vector.svg")]',
+                'relative after:absolute after:bottom-3 md:after:-bottom-1',
+                'lg:after:bottom-6 after:left-28 md:after:left-40',
+                'lg:after:left-50',
+                'lg:text-5xl',
+                'after:w-1 after:h-2 font-bold text-3xl capitalize leading-9'
+              )}>
               trouver, réserver et louer une voiture en toute
               simplicité
             </p>
@@ -17,7 +35,7 @@ function Hero({ section }) {
               atelier mécanique.
             </p>
           </div>
-          <div className='relative w-80 h-80 hidden md:block '>
+          <div className='lg:flex-1 relative w-80 h-80 hidden md:block '>
             <Image
               fill
               alt='illustration'

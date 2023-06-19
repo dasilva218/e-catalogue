@@ -12,11 +12,11 @@ import Breadcrumb from '@/components/wipauto/breadcrumbs/Breadcrumb';
 import Footer from '@/components/wipauto/footer/Footer';
 
 export default function Vehicles({ DEALER, CARS, SERVICE }) {
-  const [dealer, setDealer] = useState(JSON.parse(DEALER));
-  const [cars, setCars] = useState(JSON.parse(CARS));
+  const [dealer, setDealer] = useState(DEALER);
+  const [cars, setCars] = useState(CARS);
   const [service, setService] = useState(SERVICE);
   const ROUTER = useRouter();
-
+  console.log(dealer);
   const path = (service, model, marque) =>
     ROUTER.push(
       `/wipauto/compare?service=${service}&model=${model}&marque=${marque}`
@@ -41,8 +41,13 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
           page={'Détails véhicule'}
         />
       </div>
+      {/* {cars ?? (
+        <div className='flex justify-center items-center h-40'>
+          <h1 className='text-3xl'>Aucun véhicules</h1>
+        </div>
+      )} */}
       <section className='p-3 flex justify-between gap-2 flex-wrap'>
-        {cars.map((item) => (
+        {cars?.map((item) => (
           <Car
             key={item._id}
             value={item}
@@ -57,7 +62,7 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
 }
 
 function Car({ value, service, root }) {
-  console.log(service);
+  
   const [open, setOpen] = useState(false);
 
   return (
@@ -195,20 +200,26 @@ export async function getServerSideProps({ query, res }) {
     res.status(405).json({ error: 'erreure dans la connexion' })
   );
 
-  const DEALER = JSON.stringify(await DEALERS.findById(query.id));
+  const DEALER = JSON.parse(
+    JSON.stringify(await DEALERS.findById(query.id))
+  );
   const CARS =
     query.service === 'location'
-      ? JSON.stringify(
-          await RENTCARDEALER.find({
-            foreign_key_dealer: query.id,
-          })
+      ? JSON.parse(
+          JSON.stringify(
+            await RENTCARDEALER.find({
+              foreign_key_dealer: query.id,
+            })
+          )
         )
-      : JSON.stringify(
-          await SALECARDEALER.find({
-            foreign_key_dealer: query.id,
-          })
+      : JSON.parse(
+          JSON.stringify(
+            await SALECARDEALER.find({
+              foreign_key_dealer: query.id,
+            })
+          )
         );
-
+  console.log(DEALER);
   return {
     props: { DEALER, CARS, SERVICE: query.service },
   };

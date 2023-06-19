@@ -2,7 +2,7 @@ import { Certifie } from '@/components/home/Hero';
 
 function Footer() {
   return (
-    <section className='flex bg-base-100 text-white flex-col gap-5 h-64 containe  p-5'>
+    <section className='flex bg-slate-700 text-white flex-col gap-5 h-64 containe  p-5'>
       <p>prêt à prendre un véhicules</p>
       <div className='flex justify-between'>
         <ul>

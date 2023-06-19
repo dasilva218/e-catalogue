@@ -3,8 +3,9 @@ import Phone from '../svg/Phone';
 import Mail from '../svg/Mail';
 import Opening from '../svg/Opening';
 import Localisation from '../svg/Localisation';
+import { numStr } from '@/libs/helpers';
 
-export default function CarCompare() {
+export default function CarCompare({ img, marque, model, price }) {
   return (
     <div className='w-36 p-2 flex flex-col'>
       {/* image */}
@@ -12,7 +13,9 @@ export default function CarCompare() {
         <Image fill alt='illustration' src={'/img/voiture.png'} />
       </div>
       {/* nom et marque du  véhicule */}
-      <h1 className='text-center'>toyota avensis</h1>
+      <h1 className='text-center'>
+        {marque} {model}
+      </h1>
       {/* information sur le vendeur */}
       <div className='p-3 flex flex-col gap-1 '>
         {/* nom */}
@@ -38,7 +41,7 @@ export default function CarCompare() {
           <p>0775689</p>
         </div>
         {/* prix */}
-        <p>25000 fcfa</p>
+        <p>{numStr(price)} FCFA </p>
       </div>
     </div>
   );

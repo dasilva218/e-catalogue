@@ -6,7 +6,6 @@ import ItemDealer from '@/components/wipauto/dealer/ItemDealer';
 import Filter from '@/components/wipauto/filter/Filter';
 import Footer from '@/components/wipauto/footer/Footer';
 import Tab from '@/components/wipauto/navigation/Tab';
-import { getDealers } from '@/libs/helpers';
 import clsx from 'clsx';
 import { createContext, useContext, useState } from 'react';
 
@@ -75,7 +74,6 @@ const Location = () => {
 };
 
 export async function getServerSideProps({ res }) {
-  const dealers = await getDealers();
   res.setHeader(
     'Cache-Control',
     'public, s-maxage=10, stale-while-revalidate=59'
@@ -87,7 +85,7 @@ export async function getServerSideProps({ res }) {
 
   const DEALERSALE = await DEALERS.find({ sale: true });
   const DEALERENT = await DEALERS.find({ rent: true });
-
+  
   return {
     props: {
       DEALERSALE: JSON.parse(JSON.stringify(DEALERSALE)),

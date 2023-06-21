@@ -61,6 +61,34 @@ export const compare = async (rent, model, marque) => {
   return response.json();
 };
 
+// récupere des voitures en vente parrapport a son proprietaire
+export const get_car_sale = async (target) => {
+  const response = await fetch(
+    `${URL}api/carsdealer/carsSale/${target}`
+  );
+  return response.json();
+};
+
+// récupere des voitures en location parrapport a son proprietaire
+export const get_car_rent = async (target) => {
+  const response = await fetch(
+    `${URL}api/carsdealer/carsRent/${target}`
+  );
+  return response.json();
+};
+
+// suprimer un véhicule
+export async function deleteCar(carId) {
+  const Options = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  };
+
+  const response = await fetch(`${URL}api/cars/${carId}`, Options);
+  const json = await response.json();
+  return json;
+}
+
 export function numStr(a, b) {
   a = '' + a;
   b = b || ' ';

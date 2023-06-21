@@ -2,9 +2,7 @@ import { useRouter } from 'next/router';
 import { Faker, faker } from '@faker-js/faker';
 import connectMongo from '@/backend/database/dbConnect';
 // import DEALERS from '@/backend/model/dealer/dealer';
-// import PARTICULARS from '@/backend/model/particular/particular';
-// import RENTCARDEALER from '@/backend/model/dealer/rentcardealer';
-import SALECARDEALER from '@/backend/model/dealer/salecardealer';
+import CARDEALER from '@/backend/model/dealer/carsDealer';
 
 function teste({ USERS }) {
   //state
@@ -37,9 +35,9 @@ export const getServerSideProps = async (ctx) => {
     model: faker.vehicle.model(),
     fuel: faker.vehicle.fuel(),
     transmission: 'automatique',
+    service: 'vente',
     type: faker.vehicle.type(),
     year: '2015',
-    city: 'akanda',
     price: faker.random.numeric(5),
     constructor: faker.vehicle.manufacturer(),
     img: [
@@ -48,7 +46,7 @@ export const getServerSideProps = async (ctx) => {
       faker.image.image(),
     ],
     door: 4,
-    foreign_key_dealer: '648eaf185f86c6bdcceacfc6',
+    foreign_key_dealer: '648eb09e5f86c6bdcceacfc9',
   };
 
   /* 
@@ -84,11 +82,11 @@ export const getServerSideProps = async (ctx) => {
   );
 
   Array.from({ length: 4 }).forEach(() => {
-    USERS.push(newDealer());
+    // USERS.push(newDealer());
   });
 
-  // const request = await SALECARDEALER.insertMany(USERS);
-// 
+  // const request = await CARDEALER.insertMany(USERS);
+  //
   return {
     props: {
       USERS,

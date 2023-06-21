@@ -3,13 +3,12 @@ import Fuel from '@/components/wipauto/svg/Fuel';
 import Speed from '@/components/wipauto/svg/Speed';
 import DEALERS from '@/backend/model/dealer/dealer';
 import { useRouter } from 'next/router';
-import SALECARDEALER from '@/backend/model/dealer/salecardealer';
-import RENTCARDEALER from '@/backend/model/dealer/rentcardealer';
 import { useState } from 'react';
 import connectMongo from '@/backend/database/dbConnect';
 import { numStr } from '@/libs/helpers';
 import Breadcrumb from '@/components/wipauto/breadcrumbs/Breadcrumb';
 import Footer from '@/components/wipauto/footer/Footer';
+import CARDEALER from '@/backend/model/dealer/carsDealer';
 
 export default function Vehicles({ DEALER, CARS, SERVICE }) {
   const [dealer, setDealer] = useState(DEALER);
@@ -62,7 +61,6 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
 }
 
 function Car({ value, service, root }) {
-  
   const [open, setOpen] = useState(false);
 
   return (
@@ -207,15 +205,17 @@ export async function getServerSideProps({ query, res }) {
     query.service === 'location'
       ? JSON.parse(
           JSON.stringify(
-            await RENTCARDEALER.find({
+            await CARDEALER.find({
               foreign_key_dealer: query.id,
+              service: query.service,
             })
           )
         )
       : JSON.parse(
           JSON.stringify(
-            await SALECARDEALER.find({
+            await CARDEALER.find({
               foreign_key_dealer: query.id,
+              service: query.service,
             })
           )
         );

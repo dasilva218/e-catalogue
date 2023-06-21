@@ -1,4 +1,4 @@
-import { contextDealer } from '@/pages/wipauto/admin/concessionnaire/dashboard';
+import { contextDealerDashboard } from '@/pages/wipauto/admin/concessionnaire/dashboard';
 import { signOut } from 'next-auth/react';
 import { useContext } from 'react';
 
@@ -78,7 +78,7 @@ function Layout({ children }) {
 export default Layout;
 
 function Nav() {
-  const { dealer } = useContext(contextDealer);
+  const { dealer } = useContext(contextDealerDashboard);
   return (
     <div className='navbar bg-base-100'>
       <div className='flex-1'>

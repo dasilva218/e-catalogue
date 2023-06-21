@@ -36,10 +36,10 @@ export async function get_car_rent_id(req, res) {
 
 export async function deleteCar(req, res) {
   try {
-    const { idCar } = req.query;
+    const { id } = req.query;
 
-    if (idCar) {
-      const car = await CARDEALER.findByIdAndDelete(idCar);
+    if (id) {
+      const car = await CARDEALER.findByIdAndDelete(id);
       return res.status(200).json(car);
     }
 

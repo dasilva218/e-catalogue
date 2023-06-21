@@ -1,4 +1,7 @@
-import { get_cars_sale_id } from '@/backend/controller/CarsDealer';
+import {
+  deleteCar,
+  get_cars_sale_id,
+} from '@/backend/controller/CarsDealer';
 import connectMongo from '@/backend/database/dbConnect';
 
 export default async function handler(req, res) {
@@ -12,6 +15,9 @@ export default async function handler(req, res) {
       break;
     case 'PUT':
       editTeste(req, res);
+      break;
+    case 'DELETE':
+      deleteCar(req, res);
       break;
     case 'PATCH':
       addTeste(req, res);

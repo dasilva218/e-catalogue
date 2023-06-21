@@ -84,7 +84,7 @@ export async function deleteCar(carId) {
     headers: { 'Content-Type': 'application/json' },
   };
 
-  const response = await fetch(`${URL}api/cars/${carId}`, Options);
+  const response = await fetch(`${URL}api/carsdealer/car/${carId}`, Options);
   const json = await response.json();
   return json;
 }

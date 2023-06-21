@@ -1,7 +1,4 @@
-import {
-  deleteCar,
-  get_car_rent_id,
-} from '@/backend/controller/CarsDealer';
+import { deleteCar } from '@/backend/controller/CarsDealer';
 import connectMongo from '@/backend/database/dbConnect';
 
 export default async function handler(req, res) {
@@ -11,16 +8,13 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
-      get_car_rent_id(req, res);
       break;
     case 'PUT':
-      editTeste(req, res);
       break;
     case 'DELETE':
       deleteCar(req, res);
       break;
     case 'PATCH':
-      addTeste(req, res);
       break;
     default:
       res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);

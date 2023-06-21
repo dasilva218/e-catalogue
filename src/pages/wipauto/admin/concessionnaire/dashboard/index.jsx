@@ -6,7 +6,7 @@ import Layout from '@/components/wipauto/admin/Layout';
 import { getSession } from 'next-auth/react';
 import { createContext, useState } from 'react';
 
-export const contextDealer = createContext({});
+export const contextDealerDashboard = createContext({});
 
 export default function Dashboard({ DEALER, carSale, carRent }) {
   // state
@@ -20,9 +20,12 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
     setCarRents,
     setCarSales,
   };
+  console.log(carRents);
+  console.log(carSales);
+
   // rendu
   return (
-    <contextDealer.Provider value={store}>
+    <contextDealerDashboard.Provider value={store}>
       <Layout>
         <div className='h-full p-11 overflow-auto'>
           <div>
@@ -52,7 +55,7 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
           </div>
         </div>
       </Layout>
-    </contextDealer.Provider>
+    </contextDealerDashboard.Provider>
   );
 }
 

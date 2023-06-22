@@ -1,4 +1,4 @@
-import { TableCar } from '@/backend/TableCar';
+import { ModalAddCar, TableCar } from '@/backend/TableCar';
 import connectMongo from '@/backend/database/dbConnect';
 import CARDEALER from '@/backend/model/dealer/carsDealer';
 import DEALERS from '@/backend/model/dealer/dealer';
@@ -10,19 +10,18 @@ export const contextDealerDashboard = createContext({});
 
 export default function Dashboard({ DEALER, carSale, carRent }) {
   // state
+  const [OpenModal, setOpenModal] = useState(false);
   const [dealer, setDealer] = useState(DEALER);
   const [carSales, setCarSales] = useState(carSale);
   const [carRents, setCarRents] = useState(carRent);
   const store = {
+    setOpenModal,
     dealer,
     carSales,
     carRents,
     setCarRents,
     setCarSales,
   };
-  console.log(carRents);
-  console.log(carSales);
-
   // rendu
   return (
     <contextDealerDashboard.Provider value={store}>
@@ -33,7 +32,9 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
               <h2 className=' text-lg '>
                 Liste des véhicules à vendre
               </h2>
-              <div className='btn hover:text-fuchsia-600'>
+              <div
+                onClick={() => setOpenModal(!OpenModal)}
+                className='btn hover:text-fuchsia-600'>
                 Ajouter un véhicule
               </div>
             </div>
@@ -54,6 +55,7 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
             </div>
           </div>
         </div>
+        {OpenModal && <ModalAddCar />}
       </Layout>
     </contextDealerDashboard.Provider>
   );

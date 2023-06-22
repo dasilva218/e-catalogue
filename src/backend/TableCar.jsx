@@ -5,10 +5,12 @@ import {
   numStr,
 } from '@/libs/helpers';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { contextDealerDashboard } from '@/pages/wipauto/admin/concessionnaire/dashboard';
 import { DeleteForever } from '@mui/icons-material';
 import clsx from 'clsx';
+import Image from 'next/image';
+import axios from 'axios';
 
 export function TableCar({ carSales }) {
   return (
@@ -113,8 +115,9 @@ export function ModalAddCar() {
 }
 
 export function FormAddCar() {
-  const { partner, setCarRents, setCarSales, setOpenModal } =
-    useContext(Contexte);
+  const { dealer, setCarRents, setCarSales, setOpenModal } =
+    useContext(contextDealerDashboard);
+
   const [selectedImage, setSelectedImage] = useState([]);
   const [Image1, setImage1] = useState();
   const [Image2, setImage2] = useState();
@@ -197,24 +200,28 @@ export function FormAddCar() {
   return (
     <div className=' w-1/2 box-border  p-9 bg-white '>
       <div className='flex justify-around'>
-        {selectedImage.map((image, i) => (
-          <div
-            key={i}
-            className='w-40 relative box-border aspect-video rounded flex items-center justify-center border-2 border-dashed cursor-pointer'>
-            <Image src={image} fill alt='' />
-          </div>
-        ))}
+        <div
+          className={clsx(
+            'w-40',
+            'relative',
+            'box-border',
+            'aspect-video',
+            'rounded',
+            'flex',
+            'items-center',
+            'justify-center',
+            'border-2',
+            'border-dashed',
+            'DeleteForever',
+            'cursor-pointer'
+          )}>
+          <Image src={''} fill alt='' />
+        </div>
       </div>
-      <form onSubmit={onSubmit}>
+      <form>
         <div>
           <label>
-            <input
-              type='file'
-              multiple
-              accept='image/*'
-              name='fichiers'
-              onChange={selectFiles}
-            />
+            <input type='file' multiple accept='image/*' />
           </label>
         </div>
         <div className='flex justify-between'>
@@ -337,9 +344,7 @@ export function FormAddCar() {
             type='submit'
             value='enregistrer'
           />
-          <button onClick={handleClose} className='btn btn-outline'>
-            Fermer
-          </button>
+          <button className='btn btn-outline'>Fermer</button>
         </div>
       </form>
     </div>

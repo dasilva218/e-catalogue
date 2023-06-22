@@ -1,7 +1,6 @@
 import formidable from 'formidable';
 import path from 'path';
 import fs from 'fs/promises';
-import { post_car_rent } from '../../controllers/controllerCarRent';
 
 export const config = {
   api: {
@@ -12,7 +11,7 @@ export const config = {
 const readFile = (req, saveLocally) => {
   const options = {};
   if (saveLocally) {
-    options.uploadDir = path.join(process.cwd(), '/public/images');
+    options.uploadDir = path.join(process.cwd(), '/public/upload');
     options.filename = (name, ext, path, form) => {
       return Date.now().toString() + '_' + path.originalFilename;
     };
@@ -30,12 +29,12 @@ const readFile = (req, saveLocally) => {
 
 const handler = async (req, res) => {
   try {
-    await fs.readdir(path.join(process.cwd() + '/public', '/images'));
+    await fs.readdir(path.join(process.cwd() + '/public', '/upload'));
   } catch (error) {
-    await fs.mkdir(path.join(process.cwd() + '/public', '/images'));
+    await fs.mkdir(path.join(process.cwd() + '/public', '/upload'));
   }
   const data = await readFile(req, true);
-  console.log(data);
+
   res.json({ done: data.files });
 };
 

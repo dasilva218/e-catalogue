@@ -77,6 +77,24 @@ export const get_car_rent = async (target) => {
   return response.json();
 };
 
+// ajouter un véhicule
+export async function addCarrs(formData) {
+  try {
+    const Options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    };
+
+    const response = await fetch(`${URL}api/carsdealer/car`, Options);
+    const json = await response.json();
+
+    return json;
+  } catch (error) {
+    return error;
+  }
+}
+
 // suprimer un véhicule
 export async function deleteCar(carId) {
   const Options = {
@@ -84,7 +102,10 @@ export async function deleteCar(carId) {
     headers: { 'Content-Type': 'application/json' },
   };
 
-  const response = await fetch(`${URL}api/carsdealer/car/${carId}`, Options);
+  const response = await fetch(
+    `${URL}api/carsdealer/car/${carId}`,
+    Options
+  );
   const json = await response.json();
   return json;
 }

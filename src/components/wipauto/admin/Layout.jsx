@@ -2,6 +2,7 @@ import { contextDealerDashboard } from '@/pages/wipauto/admin/concessionnaire/da
 import { signOut } from 'next-auth/react';
 import { useContext } from 'react';
 import AddIcon from '@mui/icons-material/Add';
+import clsx from 'clsx';
 
 function Layout({ children }) {
   const { setOpenModal, OpenModal } = useContext(
@@ -12,14 +13,20 @@ function Layout({ children }) {
     <main className=' border h-screen overflow-hidden '>
       <Nav />
       <div className='flex h-full '>
-        <aside className='p-5 bg-slate-600'>
-          <ul className='menu w-56 h-full rounded-box'>
-            <li
-              className='btn hover:text-fuchsia-600'
-              onClick={() => setOpenModal(!OpenModal)}>
-              <span>Ajouter un véhicule</span>
-            </li>
-          </ul>
+        <aside className='p-3 bg-slate-600'>
+          <div
+            onClick={() => setOpenModal(!OpenModal)}
+            className={clsx(
+              'cursor-pointer',
+              'hover:text-cyan-600',
+              'flex',
+              'justify-center',
+              'gap-3',
+              'items-center'
+            )}>
+            <AddIcon />
+            <span>Ajouter un véhicule</span>
+          </div>
         </aside>
         <aside className='h-full pb-10 bg-cyan-700 flex-grow overflow-auto '>
           {children}

@@ -8,7 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -16,12 +16,48 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@layer components {
+
+  /* détails particuleir */
+  .flex-element {
+    @apply flex items-center gap-3;
+  }
+
+  /* composant car compare */
+  .flex-info {
+    @apply flex items-center gap-3;
+  }
+
+  .logo {
+    @apply w-12 h-16 relative md:w-16;
+  }
+
+  .how-logo {
+    @apply relative w-16 h-16 md:w-28 md:h-28 xl:w-40 xl:h-40;
+  }
+
+  .how-text {
+    @apply text-sm md:text-2xl md:font-bold uppercase tracking-wider;
+  }
+
+  .tab-li {
+    @apply flex gap-2;
+  }
+
+  .flex-filter {
+    @apply text-xs flex items-center gap-2;
+  }
+
+  .input-size {
+    @apply w-3 h-3;
+  }
+
 }

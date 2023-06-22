@@ -1,0 +1,1 @@
+const INFO = [{svg:"",info:""}]

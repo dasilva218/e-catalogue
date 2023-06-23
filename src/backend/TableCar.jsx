@@ -162,7 +162,7 @@ export function FormAddCar() {
     };
 
     const PostCar = await addCarrs(Data);
-    
+
     if (Element.service.value === 'location') {
       const Car = await get_car_rent(dealer._id);
       setCarRents(Car);
@@ -202,11 +202,12 @@ export function FormAddCar() {
 
   return (
     <div className=' w-1/2 box-border  p-9 bg-white '>
-      <div className='flex justify-around'>
+      <div className='p-3'>
         <div
           className={clsx(
             'w-40',
             'relative',
+            'border',
             'box-border',
             'aspect-video',
             'rounded',
@@ -223,7 +224,8 @@ export function FormAddCar() {
               <div
                 key={i}
                 className={clsx(
-                  'w-40',
+                  'w-20',
+                  'h-20',
                   'relative',
                   'box-border',
                   'aspect-video',
@@ -241,17 +243,16 @@ export function FormAddCar() {
           </div>
         </div>
       </div>
-      <form onSubmit={onSubmit}>
+      <form className='p-3' onSubmit={onSubmit}>
         <div>
-          <label>
-            <input
-              type='file'
-              multiple
-              accept='image/*'
-              name='fichiers'
-              onChange={selectFiles}
-            />
-          </label>
+          <input
+            className='file-input file-input-ghost w-full max-w-xs'
+            type='file'
+            multiple
+            accept='image/*'
+            name='fichiers'
+            onChange={selectFiles}
+          />
         </div>
         <div className='flex justify-between'>
           <div className='flex flex-col input-group-md'>
@@ -259,7 +260,7 @@ export function FormAddCar() {
               Marque
             </label>
             <input
-              className='input input-xs input-accent'
+              className='input-accent input input-bordered input-sm w-full'
               id='marque'
               type='text'
               name='marque'
@@ -270,7 +271,7 @@ export function FormAddCar() {
               Model
             </label>
             <input
-              className='input input-xs input-accent'
+              className='input input-bordered input-sm w-full max-w-xs'
               id='model'
               type='text'
               name='model'
@@ -330,8 +331,14 @@ export function FormAddCar() {
             <label className='label label-text' htmlFor='carbur'>
               Carburant
             </label>
-            <select className='select-sm ' name='fuel' id='carbur'>
+            <select
+              className='select select-success w-full max-w-xs '
+              name='fuel'
+              id='carbur'>
               <optgroup>
+                <option disabled selected>
+                  Selection du type de carburant
+                </option>
                 <option value='gasoil'>gasoil</option>
                 <option value='essence'>essence</option>
                 <option value='élèctrique'>élèctrique</option>
@@ -343,10 +350,13 @@ export function FormAddCar() {
               Transmission
             </label>
             <select
-              className='select-sm '
+              className='select select-success w-full max-w-xs'
               name='transmission'
               id='trans'>
               <optgroup className=''>
+                <option disabled selected>
+                  Selection de la transmission
+                </option>
                 <option value='manuelle'>manuelle</option>
                 <option value='automatique'>automatique</option>
               </optgroup>
@@ -358,16 +368,19 @@ export function FormAddCar() {
             </label>
             <select
               name='service'
-              className='select-sm '
+              className='select select-success w-full max-w-xs '
               id='service'>
               <optgroup>
+                <option disabled selected>
+                  Selection du service
+                </option>
                 <option value='location'>location</option>
                 <option value='vente'>vente</option>
               </optgroup>
             </select>
           </div>
         </div>
-        <div className='pt-7 flex justify-center gap-x-80 '>
+        <div className='pt-7 mt-3 flex justify-center gap-5 '>
           <input
             className=' btn btn-outline'
             type='submit'

@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
-const rentCarParticularSchema = new Schema(
+const postVehiculeSchema = new Schema(
   {
     marque: { type: String, require: true },
     model: { type: String },
@@ -11,14 +11,14 @@ const rentCarParticularSchema = new Schema(
     city: { type: String, require: true },
     price: Number,
     img: [String],
+    owner: { name: String, tel: String },
     door: Number,
-    foreign_key_dealer: String,
+    online: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
 
-const RENTCARP =
-  models.rentcarparticulars ||
-  model('rentcarparticulars', rentCarParticularSchema);
+const POSTVEHICULES =
+  models.postvehicules || model('postvehicules', postVehiculeSchema);
 
-export default RENTCARP;
+export default POSTVEHICULES;

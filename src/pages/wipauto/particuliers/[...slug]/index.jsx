@@ -1,6 +1,6 @@
 import connectMongo from '@/backend/database/dbConnect';
 import PARTICULARS from '@/backend/model/particular/particular';
-import RENTCARP from '@/backend/model/particular/rentcarparticular';
+import RENTCARP from '@/backend/model/particular/postVehicules';
 import SALECARP from '@/backend/model/particular/salecarparticular';
 import NAvBarAuto from '@/components/wipauto/Navbar';
 import NavPage from '@/components/wipauto/particuliers/navpage/NavPage';

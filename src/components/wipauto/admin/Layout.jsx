@@ -3,6 +3,7 @@ import { signOut } from 'next-auth/react';
 import { useContext } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 function Layout({ children }) {
   const { setOpenModal, OpenModal } = useContext(
@@ -67,8 +68,8 @@ function Nav() {
           <label
             tabIndex={0}
             className='btn btn-ghost btn-circle avatar'>
-            <div className='w-10 rounded-full'>
-              <img src={dealer.logo} />
+            <div className='w-10 rounded-full relative'>
+              <Image src={dealer.logo} alt='ss' fill />
             </div>
           </label>
           <ul

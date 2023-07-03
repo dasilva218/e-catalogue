@@ -11,7 +11,7 @@ export default function Particulars() {
   return (
     <ParticularContext.Provider value={''}>
       <main className='border border-red-200'>
-        <NAvBarAuto />
+        <NAvBarAuto page={'particuliers'} />
         <section>
           <Hero section={true} />
         </section>

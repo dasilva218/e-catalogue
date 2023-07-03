@@ -9,6 +9,7 @@ import { numStr } from '@/libs/helpers';
 import Breadcrumb from '@/components/wipauto/breadcrumbs/Breadcrumb';
 import Footer from '@/components/wipauto/footer/Footer';
 import CARDEALER from '@/backend/model/dealer/carsDealer';
+import Image from 'next/image';
 
 export default function Vehicles({ DEALER, CARS, SERVICE }) {
   const [dealer, setDealer] = useState(DEALER);
@@ -25,13 +26,8 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
     <main className='bg-white text-black'>
       <div className='flex h-40  items-center justify-around border-red-700'>
         <h1 className='lg:text-2xl'>{dealer.name}</h1>
-        <div className='border border-blue-600 w-40 max-h-36'>
-          <img
-            className='h-full'
-            src={dealer.logo}
-            alt='ss'
-            srcset=''
-          />
+        <div className='border relative border-blue-600 w-40 max-h-36'>
+          <Image alt='ss' fill src={dealer.logo} />
         </div>
       </div>
       <div className='flex justify-center'>
@@ -65,8 +61,8 @@ function Car({ value, service, root }) {
 
   return (
     <div className='w-40 lg:w-72 p-3 shadow-xl'>
-      <div className='w-full h-40'>
-        <img className='w-full' src={value.img[0]} alt='ds' />
+      <div className='w-full relative h-40'>
+        <Image className='w-full' src={value.img[0]} alt='ds' fill />
       </div>
       <div className='p-3 flex flex-col gap-3'>
         <div className='flex text-sm font-bold gap-2'>
@@ -145,7 +141,7 @@ function Modal({
                 key={index}
                 id='slide1'
                 className='carousel-item relative w-full'>
-                <img src={item} className='w-full' />
+                <Image src={item} alt='jj' className='w-full' fill />
                 <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
                   <a href='#slide4' className='btn btn-circle'>
                     ❮

@@ -15,6 +15,7 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
   const [carSales, setCarSales] = useState(carSale);
   const [carRents, setCarRents] = useState(carRent);
   const store = {
+    OpenModal,
     setOpenModal,
     dealer,
     carSales,
@@ -32,11 +33,6 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
               <h2 className=' text-lg '>
                 Liste des véhicules à vendre
               </h2>
-              <div
-                onClick={() => setOpenModal(!OpenModal)}
-                className='btn hover:text-fuchsia-600'>
-                Ajouter un véhicule
-              </div>
             </div>
             <div className='w-full h-80 mt-2 p-5 overflow-auto bg-slate-200'>
               <TableCar carSales={carSales} />
@@ -46,9 +42,6 @@ export default function Dashboard({ DEALER, carSale, carRent }) {
           <div>
             <div className='mt-8 text-gray-100 flex items-center justify-between'>
               <h2 className=' text-lg '>Véhicules en location</h2>
-              <div className='btn hover:text-fuchsia-600'>
-                Ajouter un véhicule
-              </div>
             </div>
             <div className='w-full h-80 mt-2 p-5 overflow-auto bg-slate-200'>
               <TableCar carSales={carRents} />

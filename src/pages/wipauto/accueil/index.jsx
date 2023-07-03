@@ -31,7 +31,7 @@ export default function HomeAuto() {
           et vente de voitures..
         </p>
         <div className='relative h-36  md:h-56 '>
-          <Image fill src={'/img/how/collection-card.svg'} />
+          <Image alt='fond' fill src={'/img/how/collection-card.svg'} />
         </div>
       </section>
       <Footer />

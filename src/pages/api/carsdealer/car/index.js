@@ -1,4 +1,4 @@
-import { get_cars_sale_id } from '@/backend/controller/CarsDealer';
+import { postCar } from '@/backend/controller/CarsDealer';
 import connectMongo from '@/backend/database/dbConnect';
 
 export default async function handler(req, res) {
@@ -9,11 +9,8 @@ export default async function handler(req, res) {
   switch (req.method) {
     case 'GET':
       break;
-    case 'PUT':
-      break;
-    case 'DELETE':
-      break;
-    case 'PATCH':
+    case 'POST':
+      postCar(req, res);
       break;
     default:
       res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);

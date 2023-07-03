@@ -34,6 +34,21 @@ export async function get_car_rent_id(req, res) {
   }
 }
 
+export async function postCar(req, res) {
+  try {
+    const formData = req.body;
+    if (!formData)
+      return res
+        .status(404)
+        .json({ error: 'Form Data Not Provided...!' });
+
+    const data = await CARDEALER.create(formData);
+    res.status(201).json(data);
+  } catch (error) {
+    return res.status(404).json({ error });
+  }
+}
+
 export async function deleteCar(req, res) {
   try {
     const { id } = req.query;

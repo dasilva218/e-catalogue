@@ -25,9 +25,9 @@ function ItemDealer({
     );
   };
   return (
-    <div className=' w-full border md:w-1/2 lg:w-96 shadow-xl'>
-      <figure className='px-3 pt-3'>
-        <img src={logo} alt='Shoes' className='rounded-xl' />
+    <div className=' w-full border md:w-1/2 lg:w-auto shadow-xl'>
+      <figure className='h-56 relative '>
+        <Image src={logo} alt='Shoes' fill />
       </figure>
       <div className='card-body items-center text-black text-center'>
         <h2 className='card-title'>{name}</h2>

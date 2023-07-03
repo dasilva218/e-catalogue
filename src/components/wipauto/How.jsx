@@ -24,25 +24,25 @@ function Step() {
     <div className='grid grid-cols-5 justify-items-center '>
       <div className='flex flex-col items-center'>
         <div className='how-logo '>
-          <Image src={'/img/how/recherche.svg'} fill />
+          <Image src={'/img/how/recherche.svg'} alt='jjd' fill />
         </div>
         <p className='how-text'>recherchez</p>
       </div>
       <div className='how-logo '>
-        <Image src={'/img/how/Vector 2.svg'} fill />
+        <Image src={'/img/how/Vector 2.svg'} alt='jjd' fill />
       </div>
       <div className='flex flex-col items-center'>
         <div className='how-logo'>
-          <Image src={'/img/how/compare.svg'} fill />
+          <Image src={'/img/how/compare.svg'} alt='jjd' fill />
         </div>
         <p className='how-text'>comparez</p>
       </div>
       <div className='how-logo'>
-        <Image src={'/img/how/vector1.svg'} fill />
+        <Image src={'/img/how/vector1.svg'} alt='jjd' fill />
       </div>
       <div className='flex flex-col items-center '>
         <div className='how-logo'>
-          <Image src={'/img/how/argent.svg'} fill />
+          <Image src={'/img/how/argent.svg'} alt='jjd' fill />
         </div>
         <p className='how-text'>economisez</p>
       </div>

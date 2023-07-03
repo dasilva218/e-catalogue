@@ -1,0 +1,809 @@
+[{
+  "_id": {
+    "$oid": "64908624d57dc19bb14d1227"
+  },
+  "marque": "Ferrari",
+  "model": "PT Cruiser",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Crew Cab Pickup",
+  "year": "2015",
+  "price": 95420,
+  "img": [
+    "https://loremflickr.com/640/480/abstract",
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/fashion"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaeb65f86c6bdcceacfc3",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193124419"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193124419"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490881dd57dc19bb14d123f"
+  },
+  "marque": "Volkswagen",
+  "model": "Spyder",
+  "fuel": "Electric",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "SUV",
+  "year": "2015",
+  "price": 30769,
+  "img": [
+    "https://loremflickr.com/640/480/cats",
+    "https://loremflickr.com/640/480/nightlife",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaeb65f86c6bdcceacfc3",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193629080"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193629080"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d1247"
+  },
+  "marque": "Land Rover",
+  "model": "Corvette",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 32094,
+  "img": [
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693029"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693029"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d1248"
+  },
+  "marque": "Land Rover",
+  "model": "Corvette",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 32094,
+  "img": [
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693029"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693029"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d1249"
+  },
+  "marque": "Land Rover",
+  "model": "Corvette",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 32094,
+  "img": [
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693030"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693030"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d124a"
+  },
+  "marque": "Land Rover",
+  "model": "Corvette",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 32094,
+  "img": [
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/city",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693030"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693030"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d124c"
+  },
+  "marque": "Ford",
+  "model": "A4",
+  "fuel": "Electric",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Coupe",
+  "year": "2015",
+  "price": 30357,
+  "img": [
+    "https://loremflickr.com/640/480/technics",
+    "https://loremflickr.com/640/480/nightlife",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693061"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693061"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d124d"
+  },
+  "marque": "Ford",
+  "model": "A4",
+  "fuel": "Electric",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Coupe",
+  "year": "2015",
+  "price": 30357,
+  "img": [
+    "https://loremflickr.com/640/480/technics",
+    "https://loremflickr.com/640/480/nightlife",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693061"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693061"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d124e"
+  },
+  "marque": "Ford",
+  "model": "A4",
+  "fuel": "Electric",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Coupe",
+  "year": "2015",
+  "price": 30357,
+  "img": [
+    "https://loremflickr.com/640/480/technics",
+    "https://loremflickr.com/640/480/nightlife",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693062"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693062"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490885dd57dc19bb14d124f"
+  },
+  "marque": "Ford",
+  "model": "A4",
+  "fuel": "Electric",
+  "transmission": "automatique",
+  "service": "location",
+  "type": "Coupe",
+  "year": "2015",
+  "price": 30357,
+  "img": [
+    "https://loremflickr.com/640/480/technics",
+    "https://loremflickr.com/640/480/nightlife",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193693062"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193693062"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1251"
+  },
+  "marque": "Jeep",
+  "model": "Prius",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Convertible",
+  "year": "2015",
+  "price": 94604,
+  "img": [
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/cats",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1252"
+  },
+  "marque": "Jeep",
+  "model": "Prius",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Convertible",
+  "year": "2015",
+  "price": 94604,
+  "img": [
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/cats",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1253"
+  },
+  "marque": "Jeep",
+  "model": "Prius",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Convertible",
+  "year": "2015",
+  "price": 94604,
+  "img": [
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/cats",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706771"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1254"
+  },
+  "marque": "Jeep",
+  "model": "Prius",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Convertible",
+  "year": "2015",
+  "price": 94604,
+  "img": [
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/cats",
+    "https://loremflickr.com/640/480/nightlife"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706772"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706772"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1256"
+  },
+  "marque": "Maserati",
+  "model": "Fortwo",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 59979,
+  "img": [
+    "https://loremflickr.com/640/480/animals",
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/people"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706861"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706861"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1257"
+  },
+  "marque": "Maserati",
+  "model": "Fortwo",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 59979,
+  "img": [
+    "https://loremflickr.com/640/480/animals",
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/people"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1258"
+  },
+  "marque": "Maserati",
+  "model": "Fortwo",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 59979,
+  "img": [
+    "https://loremflickr.com/640/480/animals",
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/people"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6490886ad57dc19bb14d1259"
+  },
+  "marque": "Maserati",
+  "model": "Fortwo",
+  "fuel": "Hybrid",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Sedan",
+  "year": "2015",
+  "price": 59979,
+  "img": [
+    "https://loremflickr.com/640/480/animals",
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/people"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaf185f86c6bdcceacfc6",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193706862"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d125b"
+  },
+  "marque": "Smart",
+  "model": "Accord",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Hatchback",
+  "year": "2015",
+  "price": 45896,
+  "img": [
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748125"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748125"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d125c"
+  },
+  "marque": "Smart",
+  "model": "Accord",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Hatchback",
+  "year": "2015",
+  "price": 45896,
+  "img": [
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d125d"
+  },
+  "marque": "Smart",
+  "model": "Accord",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Hatchback",
+  "year": "2015",
+  "price": 45896,
+  "img": [
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d125e"
+  },
+  "marque": "Smart",
+  "model": "Accord",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Hatchback",
+  "year": "2015",
+  "price": 45896,
+  "img": [
+    "https://loremflickr.com/640/480/nature",
+    "https://loremflickr.com/640/480/business",
+    "https://loremflickr.com/640/480/animals"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748126"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d1260"
+  },
+  "marque": "Bentley",
+  "model": "LeBaron",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Cargo Van",
+  "year": "2015",
+  "price": 62905,
+  "img": [
+    "https://loremflickr.com/640/480/abstract",
+    "https://loremflickr.com/640/480/sports",
+    "https://loremflickr.com/640/480/cats"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d1261"
+  },
+  "marque": "Bentley",
+  "model": "LeBaron",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Cargo Van",
+  "year": "2015",
+  "price": 62905,
+  "img": [
+    "https://loremflickr.com/640/480/abstract",
+    "https://loremflickr.com/640/480/sports",
+    "https://loremflickr.com/640/480/cats"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d1262"
+  },
+  "marque": "Bentley",
+  "model": "LeBaron",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Cargo Van",
+  "year": "2015",
+  "price": 62905,
+  "img": [
+    "https://loremflickr.com/640/480/abstract",
+    "https://loremflickr.com/640/480/sports",
+    "https://loremflickr.com/640/480/cats"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748202"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "64908894d57dc19bb14d1263"
+  },
+  "marque": "Bentley",
+  "model": "LeBaron",
+  "fuel": "Gasoline",
+  "transmission": "automatique",
+  "service": "vente",
+  "type": "Cargo Van",
+  "year": "2015",
+  "price": 62905,
+  "img": [
+    "https://loremflickr.com/640/480/abstract",
+    "https://loremflickr.com/640/480/sports",
+    "https://loremflickr.com/640/480/cats"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eb09e5f86c6bdcceacfc9",
+  "__v": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687193748204"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687193748204"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "6495e052408fb49d8673dedd"
+  },
+  "marque": "toyota",
+  "model": "avensis",
+  "fuel": "essence",
+  "transmission": "manuelle",
+  "service": "location",
+  "type": "berline",
+  "year": "2009",
+  "price": 20000,
+  "img": [
+    "1687543890003_carburant.png"
+  ],
+  "door": 4,
+  "foreign_key_dealer": "648eaeb65f86c6bdcceacfc3",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1687543890200"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1687543890200"
+    }
+  },
+  "__v": 0
+}]

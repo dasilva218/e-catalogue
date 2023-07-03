@@ -47,12 +47,25 @@ function Hero({ section }) {
     );
   } else {
     return (
-      <section className='h-28 border border-red-700 bg-no-repeat bg-[url("/img/backcompare.png")] p-4 '>
-        <p className='text-sm w-64'>
-          Trouver la voiture que vous voulez grâce aux milliers de
-          particuliers qui nous font confiance
-        </p>
-      </section>
+      <div className={clsx('lg:flex', 'lg:p-8')}>
+        <div className='flex-1'></div>
+        <div
+          className={clsx(
+            'flex-1',
+            'lg:h-48',
+            'bg-no-repeat',
+            'lg:bg-cover',
+            'bg-[url("/img/backcompare.png")]',
+            'p-4 '
+          )}>
+          <div className='flex justify-center items-center h-full'>
+            <p className='text-sm w-64 text-white'>
+              Trouver la voiture que vous voulez grâce aux milliers de
+              particuliers qui nous font confiance
+            </p>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -183,7 +183,6 @@ export function FormAddCar() {
    */
   const selectFiles = ({ target }) => {
     const files = target.files;
-    console.log(files);
     if (files) {
       let images = [];
       //   let fileSend = [];

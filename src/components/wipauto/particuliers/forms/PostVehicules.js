@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import Image from 'next/image';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 function PostVehicules() {
@@ -9,13 +11,73 @@ function PostVehicules() {
     formState: { errors },
     watch,
   } = useForm();
+  const [selectImage, setSelectedImage] = useState();
+  const [selectedFile, setSelectedFile] = useState();
+  // event
+  const selectFiles = ({ target }) => {
+    const files = target.files;
+    if (files) {
+      let images = [];
+      //   let fileSend = [];
+      try {
+        for (const key in files) {
+          images.push(URL.createObjectURL(files[key]));
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+      setSelectedImage(images);
+    }
+  };
+
   // rendu
   return (
     <>
-      <form className='border max-w-screen-md h-screen overflow-hidden flex-1'>
-        <div className='h-full grid grid-cols-2 content-center place-items-center gap-5 '>
+      <form
+        onSubmit={handleSubmit((data) => console.log(data))}
+        className=''>
+        {/* selection des images */}
+        <label htmlFor='file'>
+          <input
+            id='file'
+            onChange={selectFiles}
+            type='file'
+            hidden
+          />
+          <div
+            className={clsx(
+              'w-40',
+              'aspect-video',
+              'rounded',
+              'flex',
+              'items-center',
+              'justify-center',
+              'border-2',
+              'border-dashed',
+              'cursor-pointer'
+            )}>
+            {selectImage ? (
+              <div className='relative w-full h-full '>
+                <Image alt='' fill src={selectImage} />
+              </div>
+            ) : (
+              <span>Select Image</span>
+            )}
+          </div>
+        </label>
+        {/* selection des images */}
+        <div
+          className={clsx(
+            'h-full',
+            'grid',
+            'grid-cols-2',
+            'content-center',
+            'place-items-center',
+            'gap-5 '
+          )}>
           <input
             type='text'
+            {...register('name')}
             placeholder='Entez la marque du véhicule'
             className={clsx(
               'input',

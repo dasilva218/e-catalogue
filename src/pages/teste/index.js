@@ -31,7 +31,7 @@ export default teste;
 
 export const getServerSideProps = async (ctx) => {
   const CAR = {
-    marque: faker.vehicle.manufacturer(),
+    marque: 'm',
     model: faker.vehicle.model(),
     fuel: faker.vehicle.fuel(),
     transmission: 'automatique',
@@ -46,7 +46,7 @@ export const getServerSideProps = async (ctx) => {
       faker.image.image(),
     ],
     door: 4,
-    foreign_key_dealer: '648eb09e5f86c6bdcceacfc9',
+    foreign_key_dealer: '648eaeb65f86c6bdcceacfc3',
   };
 
   /* 

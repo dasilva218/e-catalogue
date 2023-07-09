@@ -28,8 +28,9 @@ export async function getServerSideProps(ctx) {
   );
 
   const CARCOMPARE = await CARDEALER.find({
-    marque: marque,
-    model: model,
+    marque,
+    model,
+    service,
   });
 
   return {

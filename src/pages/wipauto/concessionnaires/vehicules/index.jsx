@@ -16,23 +16,22 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
   const [cars, setCars] = useState(CARS);
   const [service, setService] = useState(SERVICE);
   const ROUTER = useRouter();
-  console.log(dealer);
+
   const path = (service, model, marque) =>
     ROUTER.push(
       `/wipauto/compare?service=${service}&model=${model}&marque=${marque}`
     );
-
   return (
     <main className='bg-white text-black'>
       <div className='flex h-40  items-center justify-around border-red-700'>
         <h1 className='lg:text-2xl'>{dealer.name}</h1>
-        <div className='border relative border-blue-600 w-40 max-h-36'>
+        <div className=' relative w-40 h-36'>
           <Image alt='ss' fill src={dealer.logo} />
         </div>
       </div>
       <div className='flex justify-center'>
         <Breadcrumb
-          onClick={() => ROUTER.back()}
+          onClick={() => ROUTER.push("/wipauto/concessionnaires")}
           page={'Détails véhicule'}
         />
       </div>
@@ -58,11 +57,15 @@ export default function Vehicles({ DEALER, CARS, SERVICE }) {
 
 function Car({ value, service, root }) {
   const [open, setOpen] = useState(false);
-
   return (
     <div className='w-40 lg:w-72 p-3 shadow-xl'>
       <div className='w-full relative h-40'>
-        <Image className='w-full' src={value.img[0]} alt='ds' fill />
+        <Image
+          className='w-full'
+          src={`/img/vehicles/${value.img[0]}`}
+          alt='ds'
+          fill
+        />
       </div>
       <div className='p-3 flex flex-col gap-3'>
         <div className='flex text-sm font-bold gap-2'>
@@ -134,25 +137,27 @@ function Modal({
             </h2>
           )}
         </div>
-        <div className='carousel w-full mb-5'>
-          {img.map((item, index) => {
-            return (
-              <div
-                key={index}
-                id='slide1'
-                className='carousel-item relative w-full'>
-                <Image src={item} alt='jj' className='w-full' fill />
-                <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
-                  <a href='#slide4' className='btn btn-circle'>
-                    ❮
-                  </a>
-                  <a href='#slide2' className='btn btn-circle'>
-                    ❯
-                  </a>
-                </div>
+        <div className='carousel w-full'>
+          {img.map((item, index) => (
+            <div
+              key={item._id}
+              id={`slide${index}`}
+              className='carousel-item relative w-full h-64'>
+              <Image src={`/img/vehicles/${item}`} alt='' fill />
+              <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
+                <a
+                  href={`#slide${index - 1}`}
+                  className='btn btn-circle'>
+                  ❮
+                </a>
+                <a
+                  href={`#slide${index + 1}`}
+                  className='btn btn-circle'>
+                  ❯
+                </a>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
         <Property>
           <div className='flex items-center gap-2 '>
@@ -215,7 +220,7 @@ export async function getServerSideProps({ query, res }) {
             })
           )
         );
-  console.log(DEALER);
+
   return {
     props: { DEALER, CARS, SERVICE: query.service },
   };

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
 export default function Hero() {
   const router = useRouter();
@@ -11,11 +12,21 @@ export default function Hero() {
         <p className='flex-1 text-orange-300 self-center md:text-8xl text-5xl lg:text-6xl '>
           Le Meilleur
         </p>
-        <p className=' leading-tight after:content-[url("/img/underline.svg")] after:absolute after:bottom-10 after:left-0 after:right-0 relative flex-1 text-center text-5xl'>
+        <p className='leading-tight after:content-[url("/img/underline.svg")] after:absolute after:bottom-10 after:left-0 after:right-0 relative flex-1 text-center text-5xl'>
           en un seul endroit
         </p>
       </div>
-      <p className=' text-center text-md md:text-4xl lg:text-2xl py-6 antialiased leading-relaxed  -tracking-tight '>
+      <p
+        className={clsx(
+          'text-center',
+          'text-md',
+          'md:text-4xl',
+          'lg:text-2xl',
+          'py-6',
+          'antialiased',
+          'leading-relaxed',
+          '-tracking-tight '
+        )}>
         Ne vous déplacez plus ! Peu importe où vous êtes, wip vous
         offre un catalogue de service sur mesure gagnez du temps
         faites des économies et comparez vos prix.
@@ -24,7 +35,7 @@ export default function Hero() {
         onClick={() => {
           router.push('/wipauto/accueil');
         }}
-        className='btn btn-warning md:w-44 hover:bg-orange-300 tracking-widest '>
+        className={clsx('btn', 'btn-outline', 'btn-warning')}>
         DECOUVRIR
       </button>
     </section>

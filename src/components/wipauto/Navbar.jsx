@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Link from 'next/link';
 
 export default function NAvBarAuto({ page }) {
@@ -7,12 +8,19 @@ export default function NAvBarAuto({ page }) {
     'particuliers',
     'services',
   ];
-  const menu1 = ['inscription', 'connexion'];
+  const menu1 = ['connexion'];
   const MENU2 = ['vehicules', 'autres'];
   return (
-    <div className='flex p-2 justify-between items-center bg-base-200'>
-      <details className='dropdown'>
-        <summary className='btn btn-square btn-ghost'>
+    <div
+      className={clsx(
+        'flex',
+        'p-2',
+        'justify-between',
+        'items-center',
+        'bg-base-200'
+      )}>
+      <details className='lg:invisible dropdown'>
+        <summary className={clsx('btn', 'btn-square', 'btn-ghost')}>
           {' '}
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -36,6 +44,25 @@ export default function NAvBarAuto({ page }) {
           ))}
         </ul>
       </details>
+
+      <ul
+        className={clsx(
+          'lg:p-2',
+          'lg:w-52',
+          'hidden',
+          'lg:visible',
+          'lg:flex',
+          'lg:flex-row'
+        )}>
+        {menu.map((item, index) => (
+          <li className='p-3' key={index}>
+            <Link href={`/wipauto/${encodeURIComponent(item)}`}>
+              {item}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
       <div className='text-orange-400  '>
         <Link href={'/'}>
           {' '}

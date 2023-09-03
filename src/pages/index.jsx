@@ -4,9 +4,10 @@ import clsx from 'clsx';
 
 export default function Home() {
   return (
+
     <main
       className={clsx(
-        'bg-gradient-to-r',
+        'bg-gradient-to-tr',
         'from-white',
         'from-10%',
         'via-sky-200',
